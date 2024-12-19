@@ -23,6 +23,7 @@ The aim of this project is to create and analyze a bipartite graph that represen
 ## Data Preprocessing and Cleaning
 - **R Script**: `sna_dataclean.R` Used for data cleaning and preparation.  
 - **Python Script**: `levdist.py` Implements the Levenshtein Distance for string matching.
+- **Cleaned Dataset (after applying Levenshtein Distance)**: `cleaned_dataset.csv`
 
 ## Configurations and Input Details
 ### Configuration 1:
