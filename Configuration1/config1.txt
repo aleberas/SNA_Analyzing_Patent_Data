@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<eventnet.configuration name="eventnet.configuration" version="1.1">
+  <input.files accept=".csv" has.header="true" delimiter="COMMA" quote.char="DOUBLEQUOTE">
+    <input.directory name="/Users/federicamarini/Desktop/USI/Analysis of Social Networks/Project"/>
+    <file name="x_hyperevent_INPUT.csv"/>
+  </input.files>
+  <output.directory name="/Users/federicamarini/Desktop/USI/Analysis of Social Networks/Project/Results"/>
+  <event.components>
+    <component name="SOURCE" column.name="Inventor"/>
+    <component name="TARGET" column.name="ICL_Class"/>
+    <component name="TIME" column.name="App_Date"/>
+    <component name="EVENT_INTERVAL_ID" column.name="WKU_Standardized"/>
+  </event.components>
+  <network.mode is.multimode="true" number.of.modes="2">
+    <node.set index="0" name="Inventor"/>
+    <node.set index="1" name="ICL_Class"/>
+  </network.mode>
+  <event.types>
+    <type name="EVENT" implied="true" admits.loops="false" source.node.set="" target.node.set=""/>
+  </event.types>
+  <time time.format.type="DATE_TIME" interval.type="EVENT" time.unit="1" calendar.time.unit="DAY" date.format.pattern="yyyy-MM-dd"/>
+  <attribute name="author.citation.popularity" class="NODE_LEVEL" type="DEFAULT_NODE_LEVEL_ATTRIBUTE" description="">
+    <attr.update type="INCREMENT_VALUE_BY"/>
+    <event.response event.type="EVENT" direction="IN"/>
+  </attribute>
+  <attribute name="has.authored" class="NODE_LEVEL" type="DEFAULT_NODE_LEVEL_ATTRIBUTE" description="">
+    <attr.update type="SET_VALUE_TO"/>
+    <event.response event.type="EVENT" direction="OUT"/>
+  </attribute>
+  <attribute name="author.publication.activity" class="NODE_LEVEL" type="DEFAULT_NODE_LEVEL_ATTRIBUTE" description="">
+    <attr.update type="INCREMENT_VALUE_BY"/>
+    <event.response event.type="EVENT" direction="OUT"/>
+  </attribute>
+  <attribute name="author.hyed" class="DIR_HYPER_LEVEL" type="DEFAULT_DHE_ATTRIBUTE" description="">
+    <attr.update type="INCREMENT_VALUE_BY"/>
+    <event.response event.type="EVENT"/>
+  </attribute>
+  <attribute name="coauthor.dyadic" class="DYAD_LEVEL" type="DYAD_LEVEL_ATTRIBUTE_FROM_DHE" description="" endpoint="SOURCE">
+    <attr.update type="INCREMENT_VALUE_BY"/>
+    <event.response event.type="EVENT"/>
+  </attribute>
+  <attribute name="author.dyadic" class="DYAD_LEVEL" type="DYAD_LEVEL_ATTRIBUTE_FROM_DHE" description="">
+    <attr.update type="INCREMENT_VALUE_BY"/>
+    <event.response event.type="EVENT"/>
+  </attribute>
+  <attribute name="network.attribute" class="NETWORK_LEVEL" type="DEFAULT_NETWORK_LEVEL_ATTRIBUTE" description="">
+    <attr.update type="INCREMENT_VALUE_BY"/>
+    <event.response event.type="EVENT"/>
+  </attribute>
+  <statistic name="source.size" type="DHE_SIZE_STAT" endpoint="SOURCE"/>
+  <statistic name="target.size" type="DHE_SIZE_STAT" endpoint="TARGET"/>
+  <statistic name="network.stat" type="DHE_NETWORK_STAT" network.attr.name.1="network.attribute"/>
+  <statistic name="avg.patents.per.inventor" type="DHE_NODE_STAT" node.attr.name.1="has.authored" na.value="-1.0" endpoint="SOURCE">
+    <aggregation.function type="AVERAGE"/>
+  </statistic>
+  <statistic name="avg.repeated.submissions" type="DHE_SUB_REPETITION_STAT" direction.1="OUT" hyperedge.attr.name.1="author.hyed" source.size="1" target.size="0">
+    <aggregation.function type="AVERAGE"/>
+  </statistic>
+  <statistic name="avg.submissions.per.class" type="DHE_SUB_REPETITION_STAT" direction.1="OUT" hyperedge.attr.name.1="author.hyed" source.size="1" target.size="1">
+    <aggregation.function type="AVERAGE"/>
+  </statistic>
+  <observation name="JOINT" type="COND_SIZE_DHE_OBS" exclude.loops="true" apply.case.control.sampling="true" number.of.non.events="1" non.events.are.per.observed.event="true"/>
+</eventnet.configuration>
