@@ -25,7 +25,7 @@ The aim of this project is to create and analyze a bipartite graph that represen
 - **Python Script**: `levdist.py` Implements the Levenshtein Distance for string matching.
 - **Cleaned Dataset (after applying Levenshtein Distance)**: `cleaned_dataset.csv`
 
-## Configurations and Input Details
+## Configurations, Input and Output Details
 ### Configuration 1:
 - **Input Dataset for EventNet**: `input_df.csv`
 - **EventNet XML**: `config1.txt`
