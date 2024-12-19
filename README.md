@@ -39,7 +39,7 @@ The aim of this project is to create and analyze a bipartite graph that represen
 ### Configuration 3:
 - **Input Dataset for EventNet**: `input_df2.csv`
 - **EventNet XML**: `config3.txt`  
-- **Output**: `resultconfig3.csv` Generated statistics from RHEM.
+- **Output from EventNet**: `resultconfig3.csv` Generated statistics from RHEM.
 
 ## Model for EventNet Statistics
 - **Cox Proportional Hazards Model**: `coxph.R` Implemented in R for statistical analysis of event data.
