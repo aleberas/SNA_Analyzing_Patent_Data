@@ -1,5 +1,5 @@
 
-# SNA_Analyzing_Patent_Data
+# SNA Project: Analyzing Patent Data
 
 ## Overview
 The aim of this project is to create and analyze a bipartite graph that represents the relationships between inventors and the International Classification of Patents (ICL) associated with their patents.
