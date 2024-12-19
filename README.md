@@ -21,7 +21,7 @@ The aim of this project is to create and analyze a bipartite graph that represen
    - This approach considers complex, multi-association events occurring at the same time.
 
 ## Data Preprocessing and Cleaning
-- **R Script**: `sna_dataclean.R` Used for data cleaning and preparation.  
+- **R Script**: `sna_dataclean.R` Used for data cleaning and preparation of the network.
 - **Python Script**: `levdist.py` Implements the Levenshtein Distance for string matching.
 - **Cleaned Dataset (after applying Levenshtein Distance)**: `cleaned_dataset.csv`
 
