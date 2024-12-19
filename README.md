@@ -21,23 +21,27 @@ The aim of this project is to create and analyze a bipartite graph that represen
    - This approach considers complex, multi-association events occurring at the same time.
 
 ## Data Preprocessing and Cleaning
-- **R Script**: Used for data cleaning and preparation.  
-- **Python Script**: Implements the Levenshtein Distance for string matching.
+- **R Script**: `sna_dataclean.R` Used for data cleaning and preparation.  
+- **Python Script**: `levdist.py` Implements the Levenshtein Distance for string matching.
 
 ## Configurations and Input Details
 ### Configuration 1:
-- *Details pending.*
+- **Input Dataset for EventNet**: `input_df.csv`
+- **EventNet XML**: `config1.txt`
+- **Output from EventNet**: `resultconfig1.csv` Generated statistics from REM.
 
 ### Configuration 2:
-- **Input Dataset**: Contains inventor and patent data.  
+- **Input Dataset for EventNet**: `input_df2.csv`
 - **EventNet XML**: `config2.txt`  
-- **Output**: Generated statistics from REM.
+- **Output from EventNet**: `resultconfig2.csv` Generated statistics from REM.
 
 ### Configuration 3:
-- **Input Dataset**: Contains inventor and patent data.  
-- **EventNet XML**: `config2.txt`  
-- **Output**: Generated statistics from RHEM.
+- **Input Dataset for EventNet**: `input_df2.csv`
+- **EventNet XML**: `config3.txt`  
+- **Output**: `resultconfig3.csv` Generated statistics from RHEM.
 
 ## Model for EventNet Statistics
 - **Cox Proportional Hazards Model**: Implemented in R for statistical analysis of event data.
 
+## Coevolution 
+- *Details pending.*
