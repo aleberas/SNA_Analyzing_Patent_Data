@@ -41,8 +41,8 @@ The aim of this project is to create and analyze a bipartite graph that represen
 - **EventNet XML**: `config3.txt`  
 - **Output from EventNet**: `resultconfig3.csv` Generated statistics from RHEM.
 
-## Model for EventNet Statistics
-- **Cox Proportional Hazards Model**: `coxph.R` Implemented in R for statistical analysis of event data.
+### Model for EventNet Statistics
+- **Cox Proportional Hazards Model**: `coxph.R` Implemented in R for statistical analysis of event data (used for all the three configuration with different statistics).
 
-## Coevolution 
+### Coevolution 
 - *Details pending.*
