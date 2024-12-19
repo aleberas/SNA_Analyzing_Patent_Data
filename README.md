@@ -19,7 +19,7 @@ The aim of this project is to create and analyze a bipartite graph that represen
 2. **Third Configuration:**  
    We extended the analysis to a **Relational Hyperevent Model (RHEM)**. This model accounts for events where:
    - A single source node (e.g., inventor) connects simultaneously to multiple target nodes (e.g., multiple ICL classes).
-   - This approach considers complex, multi-association events occurring at the same time.
+   - This approach considers multi-association events occurring at the same time.
 
 
 ## Data Preprocessing and Cleaning
