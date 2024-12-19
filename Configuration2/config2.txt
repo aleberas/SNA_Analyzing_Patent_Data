@@ -1,0 +1,87 @@
+<?xml version="1.0" ?>
+<eventnet.configuration name="eventnet.configuration" version="1.1">
+  <input.files accept=".csv" has.header="true" delimiter="COMMA" quote.char="DOUBLEQUOTE">
+    <input.directory name="/Users/alessiabera/Desktop/Project SNA/2ndpart"/>
+    <file name="type.icl.csv"/>
+  </input.files>
+  <output.directory name="/Users/alessiabera/Desktop/Project SNA"/>
+  <event.components>
+    <component name="SOURCE" column.name="Inventor"/>
+    <component name="TARGET" column.name="ICL_Class"/>
+    <component name="TIME" column.name="App_Date"/>
+    <component name="TYPE" column.name="type"/>
+    <component name="EVENT_INTERVAL_ID" column.name="WKU_Standardized"/>
+  </event.components>
+  <network.mode is.multimode="true" number.of.modes="2">
+    <node.set index="0" name="Inventor"/>
+    <node.set index="1" name="icl_class"/>
+  </network.mode>
+  <event.types>
+    <type name="Type.H" implied="false" admits.loops="false" source.node.set="Inventor" target.node.set="icl_class"/>
+    <type name="Type.D" implied="false" admits.loops="false" source.node.set="Inventor" target.node.set="icl_class"/>
+    <type name="Type.E" implied="false" admits.loops="false" source.node.set="Inventor" target.node.set="icl_class"/>
+    <type name="Type.F" implied="false" admits.loops="false" source.node.set="Inventor" target.node.set="icl_class"/>
+    <type name="Type.G" implied="false" admits.loops="false" source.node.set="Inventor" target.node.set="icl_class"/>
+    <type name="Type.A" implied="false" admits.loops="false" source.node.set="Inventor" target.node.set="icl_class"/>
+    <type name="Type.B" implied="false" admits.loops="false" source.node.set="Inventor" target.node.set="icl_class"/>
+    <type name="Type.C" implied="false" admits.loops="false" source.node.set="Inventor" target.node.set="icl_class"/>
+  </event.types>
+  <time time.format.type="DATE_TIME" interval.type="EVENT" time.unit="1" calendar.time.unit="SECOND" date.format.pattern="yyyy-MM-dd"/>
+  <attribute name="icl.class.A" class="DIR_HYPER_LEVEL" type="DEFAULT_DHE_ATTRIBUTE" description="">
+    <attr.update type="INCREMENT_VALUE_BY"/>
+    <event.response event.type="Type.A"/>
+  </attribute>
+  <attribute name="icl.class.b" class="DIR_HYPER_LEVEL" type="DEFAULT_DHE_ATTRIBUTE" description="">
+    <attr.update type="INCREMENT_VALUE_BY"/>
+    <event.response event.type="Type.B"/>
+  </attribute>
+  <attribute name="icl.class.c" class="DIR_HYPER_LEVEL" type="DEFAULT_DHE_ATTRIBUTE" description="">
+    <attr.update type="INCREMENT_VALUE_BY"/>
+    <event.response event.type="Type.C"/>
+  </attribute>
+  <attribute name="icl.class.e" class="DIR_HYPER_LEVEL" type="DEFAULT_DHE_ATTRIBUTE" description="">
+    <attr.update type="INCREMENT_VALUE_BY"/>
+    <event.response event.type="Type.E"/>
+  </attribute>
+  <attribute name="icl.class.d" class="DIR_HYPER_LEVEL" type="DEFAULT_DHE_ATTRIBUTE" description="">
+    <attr.update type="INCREMENT_VALUE_BY"/>
+    <event.response event.type="Type.D"/>
+  </attribute>
+  <attribute name="icl.class.f" class="DIR_HYPER_LEVEL" type="DEFAULT_DHE_ATTRIBUTE" description="">
+    <attr.update type="INCREMENT_VALUE_BY"/>
+    <event.response event.type="Type.F"/>
+  </attribute>
+  <attribute name="icl.class.g" class="DIR_HYPER_LEVEL" type="DEFAULT_DHE_ATTRIBUTE" description="">
+    <attr.update type="INCREMENT_VALUE_BY"/>
+    <event.response event.type="Type.G"/>
+  </attribute>
+  <attribute name="icl.class.h" class="DIR_HYPER_LEVEL" type="DEFAULT_DHE_ATTRIBUTE" description="">
+    <attr.update type="INCREMENT_VALUE_BY"/>
+    <event.response event.type="Type.H"/>
+  </attribute>
+  <statistic name="icl.class.a.consistency" type="DHE_SUB_REPETITION_STAT" direction.1="OUT" hyperedge.attr.name.1="icl.class.A" source.size="1" target.size="1">
+    <aggregation.function type="MAX"/>
+  </statistic>
+  <statistic name="icl.class.b.consistency" type="DHE_SUB_REPETITION_STAT" direction.1="OUT" hyperedge.attr.name.1="icl.class.b" source.size="1" target.size="1">
+    <aggregation.function type="MAX"/>
+  </statistic>
+  <statistic name="icl.class.c.consistency" type="DHE_SUB_REPETITION_STAT" direction.1="OUT" hyperedge.attr.name.1="icl.class.c" source.size="1" target.size="1">
+    <aggregation.function type="MAX"/>
+  </statistic>
+  <statistic name="icl.class.d.consistency" type="DHE_SUB_REPETITION_STAT" direction.1="OUT" hyperedge.attr.name.1="icl.class.d" source.size="1" target.size="1">
+    <aggregation.function type="MAX"/>
+  </statistic>
+  <statistic name="icl.class.f.consistency" type="DHE_SUB_REPETITION_STAT" direction.1="OUT" hyperedge.attr.name.1="icl.class.f" source.size="1" target.size="1">
+    <aggregation.function type="MAX"/>
+  </statistic>
+  <statistic name="icl.class.e.consistency" type="DHE_SUB_REPETITION_STAT" direction.1="OUT" hyperedge.attr.name.1="icl.class.e" source.size="1" target.size="1">
+    <aggregation.function type="MAX"/>
+  </statistic>
+  <statistic name="icl.class.g.consistency" type="DHE_SUB_REPETITION_STAT" direction.1="OUT" hyperedge.attr.name.1="icl.class.g" source.size="1" target.size="1">
+    <aggregation.function type="MAX"/>
+  </statistic>
+  <statistic name="icl.class.h.consistency" type="DHE_SUB_REPETITION_STAT" direction.1="OUT" hyperedge.attr.name.1="icl.class.h" source.size="1" target.size="1">
+    <aggregation.function type="MAX"/>
+  </statistic>
+  <observation name="JOINT" type="COND_SIZE_DHE_OBS" exclude.loops="true" apply.case.control.sampling="true" number.of.non.events="1"/>
+</eventnet.configuration>
