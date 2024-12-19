@@ -11,8 +11,6 @@ The aim of this project is to create and analyze a bipartite graph that represen
 
 ## Methodology
 
-The folder `INPUT_DATA_REDUCED` contains data about patents categorized by age.
-
 ### Configurations and Models
 1. **First Two Configurations:**  
    We employed **Relational Event Models (REM)** to capture pairwise interactions over time. In this model:
@@ -23,14 +21,16 @@ The folder `INPUT_DATA_REDUCED` contains data about patents categorized by age.
    - A single source node (e.g., inventor) connects simultaneously to multiple target nodes (e.g., multiple ICL classes).
    - This approach considers complex, multi-association events occurring at the same time.
 
+
 ## Data Preprocessing and Cleaning
+- **Folder `INPUT_DATA_REDUCED`**: contains data about patents categorized by age.
 - **R Script**: `sna_dataclean.R` Used for data cleaning and preparation of the network.
 - **Python Script**: `levdist.py` Implements the Levenshtein Distance for string matching.
 - **Cleaned Dataset (after applying Levenshtein Distance)**: [`cleaned_dataset.csv`](https://usi365.sharepoint.com/:x:/s/SNAProject/Ef1jzjqsx8VDto9HHC7H1g4BCQLDJzfParvioAG-8CktvA?e=iz5T6K)
 
 ## Configurations, Input and Output Details
 ### Configuration 1:
-- **Input Dataset for EventNet**: `input_df.csv`
+- **Input Dataset for EventNet**: [`input_df.csv`](https://usi365.sharepoint.com/:x:/s/SNAProject/ETjy0UYSpTpDrZhjJc8x8BoBl36K9FhjoR6LwDX-wg3uXA?e=0inyMh)
 - **EventNet XML**: `config1.txt`
 - **Output from EventNet**: [`output_config1.csv`](https://usi365.sharepoint.com/:x:/s/SNAProject/EV5RUj7p97tBo4LHiI1UpogBZgHzIStwVEj5hzn_uzcr-w?e=dK6fxr) Generated statistics from REM. 
 
@@ -40,7 +40,7 @@ The folder `INPUT_DATA_REDUCED` contains data about patents categorized by age.
 - **Output from EventNet**: `resultconfig2.csv` Generated statistics from REM.
 
 ### Configuration 3:
-- **Input Dataset for EventNet**: `input_df2.csv`
+- **Input Dataset for EventNet**: `input_df2.csv` (Same as Configuration 2).
 - **EventNet XML**: `config3.txt`  
 - **Output from EventNet**: `resultconfig3.csv` Generated statistics from RHEM.
 
