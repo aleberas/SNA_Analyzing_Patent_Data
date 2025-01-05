@@ -49,7 +49,7 @@ The aim of this project is to create and analyze a bipartite graph that represen
 
 ### Coevolution
 - **Stratified Random Sampling R Code**: `stratified.R`
-- **Input Dataset for EventNet**: `sampledataset.csv`.
+- **Input Dataset for EventNet**: `sampledataset.csv`
 - **EventNet XML**: `coevolution_config.txt`  
 
 *Note that some CSV files were too large; you can access them via SharePoint by clicking the provided links.*
