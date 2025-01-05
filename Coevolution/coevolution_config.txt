@@ -1,0 +1,150 @@
+<?xml version="1.0" ?>
+<eventnet.configuration name="eventnet.configuration" version="1.1">
+  <input.files accept=".csv" has.header="true" delimiter="COMMA" quote.char="DOUBLEQUOTE">
+    <input.directory name="/Users/alessiabera/Desktop"/>
+    <file name="filtered_df82.csv"/>
+  </input.files>
+  <output.directory name="/Users/alessiabera/Desktop/Project SNA"/>
+  <event.components>
+    <component name="SOURCE" column.name="Source"/>
+    <component name="TARGET" column.name="Target"/>
+    <component name="TIME" column.name="App_Date"/>
+    <component name="TYPE" column.name="type"/>
+    <component name="EVENT_INTERVAL_ID" column.name="WKU_Standardized"/>
+  </event.components>
+  <network.mode is.multimode="true" number.of.modes="2">
+    <node.set index="0" name="Source"/>
+    <node.set index="1" name="Target"/>
+  </network.mode>
+  <event.types>
+    <type name="inv.auth.inv" implied="false" admits.loops="true" source.node.set="Source" target.node.set="Target"/>
+    <type name="inv.sub.class" implied="false" admits.loops="true" source.node.set="" target.node.set=""/>
+  </event.types>
+  <time time.format.type="DATE_TIME" interval.type="TIME_POINT" time.unit="1" calendar.time.unit="SECOND" date.format.pattern="yyyy-MM-dd"/>
+  <attribute name="has.inventored" class="NODE_LEVEL" type="DEFAULT_NODE_LEVEL_ATTRIBUTE" description="">
+    <attr.update type="SET_VALUE_TO"/>
+    <event.response event.type="inv.auth.inv" direction="OUT"/>
+  </attribute>
+  <attribute name="inv.submission.activity" class="NODE_LEVEL" type="DEFAULT_NODE_LEVEL_ATTRIBUTE" description="">
+    <attr.update type="INCREMENT_VALUE_BY"/>
+    <event.response event.type="inv.sub.class" direction="OUT"/>
+  </attribute>
+  <attribute name="inventor.submission.popularity" class="NODE_LEVEL" type="DEFAULT_NODE_LEVEL_ATTRIBUTE" description="">
+    <attr.update type="INCREMENT_VALUE_BY"/>
+    <event.response event.type="inv.auth.inv" direction="IN"/>
+  </attribute>
+  <attribute name="inventor.submission.popularity2" class="NODE_LEVEL" type="DEFAULT_NODE_LEVEL_ATTRIBUTE" description="">
+    <attr.update type="INCREMENT_VALUE_BY"/>
+    <event.response event.type="inv.sub.class" direction="IN"/>
+  </attribute>
+  <attribute name="num.refs.of.patents" class="NODE_LEVEL" type="DEFAULT_NODE_LEVEL_ATTRIBUTE" description="">
+    <attr.update type="INCREMENT_VALUE_BY"/>
+    <event.response event.type="inv.sub.class" direction="OUT"/>
+  </attribute>
+  <attribute name="inventor.hyed" class="DIR_HYPER_LEVEL" type="DEFAULT_DHE_ATTRIBUTE" description="">
+    <attr.update type="INCREMENT_VALUE_BY"/>
+    <event.response event.type="inv.auth.inv"/>
+  </attribute>
+  <attribute name="coinventor.dyadic" class="DYAD_LEVEL" type="DYAD_LEVEL_ATTRIBUTE_FROM_DHE" description="" endpoint="SOURCE">
+    <attr.update type="INCREMENT_VALUE_BY"/>
+    <event.response event.type="inv.auth.inv"/>
+  </attribute>
+  <attribute name="inventor.dyadic" class="DYAD_LEVEL" type="DYAD_LEVEL_ATTRIBUTE_FROM_DHE" description="">
+    <attr.update type="INCREMENT_VALUE_BY"/>
+    <event.response event.type="inv.auth.inv"/>
+  </attribute>
+  <attribute name="icl.class.hyed" class="DIR_HYPER_LEVEL" type="DEFAULT_DHE_ATTRIBUTE" description="">
+    <attr.update type="INCREMENT_VALUE_BY"/>
+    <event.response event.type="inv.sub.class"/>
+  </attribute>
+  <attribute name="inv.sub.iclclass.dyadic" class="DYAD_LEVEL" type="DYAD_LEVEL_ATTRIBUTE_FROM_DHE" description="">
+    <attr.update type="INCREMENT_VALUE_BY"/>
+    <event.response event.type="inv.sub.class"/>
+  </attribute>
+  <attribute name="inv.sub.inv.hyed" class="DIR_HYPER_LEVEL" type="DEFAULT_DHE_ATTRIBUTE" description="">
+    <attr.update type="INCREMENT_VALUE_BY"/>
+    <event.response event.type="inv.auth.inv"/>
+  </attribute>
+  <attribute name="inv.sub.inv.dyadic" class="DYAD_LEVEL" type="DYAD_LEVEL_ATTRIBUTE_FROM_DHE" description="">
+    <attr.update type="INCREMENT_VALUE_BY"/>
+    <event.response event.type="inv.auth.inv"/>
+  </attribute>
+  <statistic name="source.size" type="DHE_SIZE_STAT" endpoint="SOURCE"/>
+  <statistic name="target.size" type="DHE_SIZE_STAT" endpoint="TARGET"/>
+  <statistic name="has.submission.avg" type="DHE_NODE_STAT" node.attr.name.1="has.inventored" na.value="-1.0" endpoint="SOURCE">
+    <aggregation.function type="AVERAGE"/>
+  </statistic>
+  <statistic name="avg.inv.subm.activity" type="DHE_NODE_STAT" node.attr.name.1="inv.submission.activity" na.value="-1.0" endpoint="SOURCE">
+    <aggregation.function type="AVERAGE"/>
+  </statistic>
+  <statistic name="avg.inv.subm.activity2" type="DHE_NODE_STAT" node.attr.name.1="inv.submission.activity" na.value="-1.0" endpoint="SOURCE">
+    <aggregation.function type="ABSDIFF"/>
+  </statistic>
+  <statistic name="avg.iclclass.sumb.pop" type="DHE_NODE_STAT" description="popularity" node.attr.name.1="inventor.submission.popularity" na.value="-1.0" endpoint="SOURCE">
+    <aggregation.function type="AVERAGE"/>
+  </statistic>
+  <statistic name="diff.inv.subm.pop" type="DHE_NODE_STAT" node.attr.name.1="inventor.submission.popularity" na.value="-1.0" endpoint="SOURCE">
+    <aggregation.function type="ABSDIFF"/>
+  </statistic>
+  <statistic name="icl.outdegree.pop" type="DHE_NODE_STAT" node.attr.name.1="num.refs.of.patents" na.value="-1.0" endpoint="TARGET">
+    <aggregation.function type="AVERAGE"/>
+  </statistic>
+  <statistic name="inv.sub.rep.1" type="DHE_SUB_REPETITION_STAT" direction.1="OUT" hyperedge.attr.name.1="inventor.hyed" source.size="1" target.size="0">
+    <aggregation.function type="AVERAGE"/>
+  </statistic>
+  <statistic name="inv.sub.rep.2" type="DHE_SUB_REPETITION_STAT" direction.1="OUT" hyperedge.attr.name.1="inventor.hyed" source.size="2" target.size="0">
+    <aggregation.function type="AVERAGE"/>
+  </statistic>
+  <statistic name="collaborate.with.inventor" type="DHE_SUB_REPETITION_STAT" direction.1="OUT" hyperedge.attr.name.1="inventor.hyed" source.size="1" target.size="1" endpoint="SOURCE">
+    <aggregation.function type="AVERAGE"/>
+  </statistic>
+  <statistic name="inv.collaboration" type="DHE_SUB_REPETITION_STAT" direction.1="OUT" hyperedge.attr.name.1="inventor.hyed" source.size="1" target.size="1">
+    <aggregation.function type="AVERAGE"/>
+  </statistic>
+  <statistic name="inv.closure.by.coinv" type="DHE_CLOSURE_STAT" dyad.attr.name.1="coinventor.dyadic" direction.1="OUT" dyad.attr.name.2="coinventor.dyadic" direction.2="OUT" endpoint="SOURCE">
+    <function.combine.parallel type="SUM"/>
+    <function.combine.serial type="MIN"/>
+    <aggregation.function type="AVERAGE"/>
+  </statistic>
+  <statistic name="inv.closure.by.coinv.patent" type="DHE_CLOSURE_STAT" dyad.attr.name.1="inv.sub.iclclass.dyadic" direction.1="OUT" dyad.attr.name.2="inv.sub.iclclass.dyadic" direction.2="OUT" endpoint="SOURCE">
+    <function.combine.parallel type="SUM"/>
+    <function.combine.serial type="MIN"/>
+    <aggregation.function type="AVERAGE"/>
+  </statistic>
+  <statistic name="inv.closure.by.coinv.from.inv" type="DHE_CLOSURE_STAT" dyad.attr.name.1="inv.sub.inv.dyadic" direction.1="IN" dyad.attr.name.2="inv.sub.inv.dyadic" direction.2="IN" endpoint="SOURCE">
+    <function.combine.parallel type="SUM"/>
+    <function.combine.serial type="MIN"/>
+    <aggregation.function type="AVERAGE"/>
+  </statistic>
+  <statistic name="inv.closure.by.coinv.to.inv" type="DHE_CLOSURE_STAT" dyad.attr.name.1="inv.sub.inv.dyadic" direction.1="OUT" dyad.attr.name.2="inv.sub.inv.dyadic" direction.2="OUT" endpoint="SOURCE">
+    <function.combine.parallel type="SUM"/>
+    <function.combine.serial type="MIN"/>
+    <aggregation.function type="AVERAGE"/>
+  </statistic>
+  <statistic name="inv.closure.by.transitive.coinv.inv" type="DHE_CLOSURE_STAT" dyad.attr.name.1="inv.sub.inv.dyadic" direction.1="OUT" dyad.attr.name.2="inv.sub.inv.dyadic" direction.2="IN" endpoint="SOURCE">
+    <function.combine.parallel type="SUM"/>
+    <function.combine.serial type="MIN"/>
+    <aggregation.function type="AVERAGE"/>
+  </statistic>
+  <statistic name="icl.icl.of.coinv.closure" type="DHE_CLOSURE_STAT" dyad.attr.name.1="coinventor.dyadic" direction.1="OUT" dyad.attr.name.2="inv.sub.iclclass.dyadic" direction.2="IN">
+    <function.combine.parallel type="SUM"/>
+    <function.combine.serial type="MIN"/>
+    <aggregation.function type="AVERAGE"/>
+  </statistic>
+  <statistic name="subm.patent.of.coinv" type="DHE_CLOSURE_STAT" dyad.attr.name.1="coinventor.dyadic" direction.1="OUT" dyad.attr.name.2="inventor.dyadic" direction.2="IN">
+    <function.combine.parallel type="SUM"/>
+    <function.combine.serial type="MIN"/>
+    <aggregation.function type="AVERAGE"/>
+  </statistic>
+  <statistic name="inv.subm.rep" type="DHE_CLOSURE_STAT" dyad.attr.name.1="inv.sub.inv.dyadic" direction.1="OUT" dyad.attr.name.2="inventor.dyadic" direction.2="IN">
+    <function.combine.parallel type="SUM"/>
+    <function.combine.serial type="MIN"/>
+    <aggregation.function type="AVERAGE"/>
+  </statistic>
+  <statistic name="inv.subm.reciprocation" type="DHE_CLOSURE_STAT" dyad.attr.name.1="inv.sub.inv.dyadic" direction.1="IN" dyad.attr.name.2="inventor.dyadic" direction.2="IN">
+    <function.combine.parallel type="SUM"/>
+    <function.combine.serial type="MIN"/>
+    <aggregation.function type="AVERAGE"/>
+  </statistic>
+  <observation name="new2" type="DEFAULT_DHE_OBS" apply.case.control.sampling="true" number.of.non.events="1" non.events.are.per.observed.event="true"/>
+</eventnet.configuration>
