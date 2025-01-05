@@ -47,9 +47,12 @@ The aim of this project is to create and analyze a bipartite graph that represen
 ### Model for EventNet Statistics
 - **Cox Proportional Hazards Model**: `coxph.R` Implemented in R for statistical analysis of event data (used for all the three configuration with different statistics).
 
-### Coevolution 
-- *Details pending.*
+### Coevolution
+- **Stratified Random Sampling R Code**: `stratified.R`
+- **Input Dataset for EventNet**: `sampledataset.csv`.
+- **EventNet XML**: `coevolution_config.txt`  
 
 *Note that some CSV files were too large; you can access them via SharePoint by clicking the provided links.*
 
-The **Report*** is available in `ASN_report.pdf`
+The **Report** for the second submission is available in `ASN_report.pdf`
+The **Final Version of the Report** is available in`ASN_final_report.pdf`
