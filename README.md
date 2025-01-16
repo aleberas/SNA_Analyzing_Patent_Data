@@ -16,7 +16,7 @@ The aim of this project is to create and analyze a bipartite graph that represen
    We employed **Relational Event Models (REM)** to capture pairwise interactions over time. In this model:
    - A source node (e.g., inventor) connects to a single target node (e.g., ICL class) in a one-to-one relationship.
 
-2. **Third Configuration:**  
+2. **Third Configuration and Coevolution:**  
    We extended the analysis to a **Relational Hyperevent Model (RHEM)**. This model accounts for events where:
    - A single source node (e.g., inventor) connects simultaneously to multiple target nodes (e.g., multiple ICL classes).
    - This approach considers multi-association events occurring at the same time.
@@ -52,7 +52,7 @@ The aim of this project is to create and analyze a bipartite graph that represen
 - **Input Dataset for EventNet**: [`sampledataset.csv`](https://usi365.sharepoint.com/:x:/s/SNAProject/ERr_lwsXOXVAiGXqZEFtIRMBaaDnNI9EB5_1qtIIZPkiTA?e=t0bdsZ)
 - **EventNet XML**: `coevolution_config.txt`
 - **Output from EventNet**: [`sampledataset_new2.csv`](https://usi365.sharepoint.com/:x:/s/SNAProject/ESAbI8QlPaFKgRwKXX7KjW8B0K2e-7tV3WwfTxYKRwJBfg?e=DPDwQ8)
-
+- **Results**: `coevolution.nb.html`
 *Note that some CSV files were too large; you can access them via SharePoint by clicking the provided links.*
 
 The **Report** for the second submission is available in `ASN_report.pdf`
