@@ -38,7 +38,7 @@ The aim of this project is to create and analyze a bipartite graph that represen
 ### Configuration 2:
 - **Input Dataset for EventNet**: `input_df2.csv`
 - **EventNet XML**: `config2.txt`  
-- **Output from EventNet**: `resultconfig2.csv` Generated statistics from REM.
+- **Output from EventNet**: [`resultconfig2.csv`](https://usi365.sharepoint.com/:x:/s/SNAProject/EVHB-mWUqpRLk3ZyX7k0y-kBNdWOUfneC_Vnq8JeEUmYtA?e=yM8IGL) Generated statistics from REM.
 
 ### Configuration 3:
 - **Input Dataset for EventNet**: `input_df2.csv` (Same as Configuration 2).
@@ -56,7 +56,7 @@ The aim of this project is to create and analyze a bipartite graph that represen
 - **Results**: `coevolution.nb.html`
 
   
-*Note that some CSV files were too large; you can access them via SharePoint by clicking the provided links.*
+*Note that some CSV files were too large; you can access them via SharePoint by clicking the provided [links](https://usi365.sharepoint.com/:u:/s/SNAProject/EemgFGeejlhAkDe0-e0uXnwBdtwV3a69hQEcExUZZrxZhg?e=R9CdYp).*
 
 The **Report** for the second submission is available in `ASN_report.pdf`
 
