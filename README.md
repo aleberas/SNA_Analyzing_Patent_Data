@@ -33,6 +33,7 @@ The aim of this project is to create and analyze a bipartite graph that represen
 - **Input Dataset for EventNet**: [`input_df.csv`](https://usi365.sharepoint.com/:x:/s/SNAProject/ETjy0UYSpTpDrZhjJc8x8BoBl36K9FhjoR6LwDX-wg3uXA?e=0inyMh)
 - **EventNet XML**: `config1.txt`
 - **Output from EventNet**: [`output_config1.csv`](https://usi365.sharepoint.com/:x:/s/SNAProject/EV5RUj7p97tBo4LHiI1UpogBZgHzIStwVEj5hzn_uzcr-w?e=dK6fxr) Generated statistics from REM. 
+- **Results:** `rem1.html`
 
 ### Configuration 2:
 - **Input Dataset for EventNet**: `input_df2.csv`
